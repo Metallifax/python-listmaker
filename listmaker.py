@@ -9,6 +9,9 @@ class MyList:
     def __str__(self):
         return str(self.ls)
 
+    def getList(self):
+        return self.ls
+
     def append(self, *args):
         for i in range(len(args)):
             self.ls.append(args[i])
@@ -26,10 +29,12 @@ def remove_state():
     print("Current list:")
     print(ls)
     return input("Remove element from list \ninput: ")
+    
 
-
-def make_file():
-    f = open()
+def make_file(file, data):
+    f = open(f"{file}.txt", "w", encoding="utf-8")
+    f.write(data, "\n")
+    f.close()
 
 
 welcome = "Welcome to the List Maker App!"
@@ -74,12 +79,11 @@ while (user_input := input(menu)) != "6":
 
     elif user_input == "4":
         # Remove from current list
-        seq_list = []
         while (input_sequence := remove_state()) != '/quit':
-            ls.remove(input_sequence)
+                ls.remove(input_sequence)
 
     elif user_input == "5":
         # TODO Export list to file
-        pass
+        make_file('poopy', ls)
 
-print("Goodbye!")
+print("Goodbye!~\n")
